@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #14F195;
+  --primary-dark: #10B981;
+  --background: #000000;
+  --surface: #121212;
+  --surface-highlight: #0D2818;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+  background-color: var(--background);
+}
+
+.font-code {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Terminal typing effect */
+.terminal-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: var(--primary);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Custom animations */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Experience timeline */
+.timeline-line {
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-dark), transparent);
+}
+
+.experience-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(20, 241, 149, 0.1);
+}
+
+/* Skill bars */
+.skill-bar {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+.skill-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Contact button pulse effect */
+.pulse-button {
+  position: relative;
+}
+
+.pulse-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Section transitions */
+.section-transition {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section-transition.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-transition.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
